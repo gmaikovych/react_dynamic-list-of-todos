@@ -1,9 +1,9 @@
 import { User } from '../types/User';
 
 export function getUser(id: number): Promise<User> {
-  return fetch('../public/api/users/' + id + '.json')
+  return fetch('/api/users/' + id + '.json')
     .then(response => {
-      if (!response) {
+      if (!response.ok) {
         throw new Error();
       }
 
